@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ArticleCommande index{% endblock %}
+
+{% block body %}
+    <h1>ArticleCommande index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idartcmd</th>
+                <th>QteArt</th>
+                <th>PrixUArt</th>
+                <th>PrixTotalArt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article_commande in article_commandes %}
+            <tr>
+                <td>{{ article_commande.idartcmd }}</td>
+                <td>{{ article_commande.qteArt }}</td>
+                <td>{{ article_commande.prixUArt }}</td>
+                <td>{{ article_commande.prixTotalArt }}</td>
+                <td>
+                    <a href="{{ path('article_commande_show', {'idartcmd': article_commande.idartcmd}) }}">show</a>
+                    <a href="{{ path('article_commande_edit', {'idartcmd': article_commande.idartcmd}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_commande_new') }}">Create new</a>
+{% endblock %}

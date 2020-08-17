@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ArticleCommande{% endblock %}
+
+{% block body %}
+    <h1>Create new ArticleCommande</h1>
+
+    {{ include('article_commande/_form.html.twig') }}
+
+    <a href="{{ path('article_commande_index') }}">back to list</a>
+{% endblock %}

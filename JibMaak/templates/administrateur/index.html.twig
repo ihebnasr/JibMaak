@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administrateur index{% endblock %}
+
+{% block body %}
+    <h1>Administrateur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id admin</th>
+                <th>Noma dmin</th>
+                <th>Prenom admin</th>
+                <th>Tel admin</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for administrateur in administrateurs %}
+            <tr>
+                <td>{{ administrateur.idadmin }}</td>
+                <td>{{ administrateur.nomadmin }}</td>
+                <td>{{ administrateur.prenomadmin }}</td>
+                <td>{{ administrateur.teladmin }}</td>
+                <td>
+                    <a href="{{ path('administrateur_show', {'idadmin': administrateur.idadmin}) }}">show</a>
+                    <a href="{{ path('administrateur_edit', {'idadmin': administrateur.idadmin}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('administrateur_new') }}">Create new</a>
+{% endblock %}

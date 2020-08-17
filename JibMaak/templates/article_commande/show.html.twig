@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ArticleCommande{% endblock %}
+
+{% block body %}
+    <h1>ArticleCommande</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idartcmd</th>
+                <td>{{ article_commande.idartcmd }}</td>
+            </tr>
+            <tr>
+                <th>QteArt</th>
+                <td>{{ article_commande.qteArt }}</td>
+            </tr>
+            <tr>
+                <th>PrixUArt</th>
+                <td>{{ article_commande.prixUArt }}</td>
+            </tr>
+            <tr>
+                <th>PrixTotalArt</th>
+                <td>{{ article_commande.prixTotalArt }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_commande_index') }}">back to list</a>
+
+    <a href="{{ path('article_commande_edit', {'idartcmd': article_commande.idartcmd}) }}">edit</a>
+
+    {{ include('article_commande/_delete_form.html.twig') }}
+{% endblock %}
